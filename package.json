@@ -1,0 +1,22 @@
+{
+  "name": "service-manager",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Book local services online: a full-stack React + Node.js + MongoDB app",
+  "workspaces": ["server", "client"],
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,magenta \"npm:dev -w server\" \"npm:dev -w client\"",
+    "dev:memory": "concurrently -n server,client -c blue,magenta \"npm:dev:memory -w server\" \"npm:dev -w client\"",
+    "build": "npm run build -w client && npm run build -w server",
+    "start": "npm start -w server",
+    "seed": "npm run seed -w server",
+    "test": "npm test -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
