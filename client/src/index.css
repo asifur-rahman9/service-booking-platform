@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Inter", ui-sans-serif, sans-serif;
+
+  /* teal: main color */
+  --color-brand-50: #eef7f5;
+  --color-brand-100: #ddf0ec;
+  --color-brand-600: #0e5e58;
+  --color-brand-700: #0a4743;
+  --color-brand-900: #10302d;
+
+  /* apricot: accent color */
+  --color-accent-100: #fdebd8;
+  --color-accent-400: #f2a65a;
+  --color-accent-700: #9a4a0b;
+
+  --color-paper: #f6f4ef;
+  --color-line: #e8e4da;
+}
+
+body {
+  @apply bg-paper text-stone-900 antialiased;
+}
+
+h1,
+h2 {
+  @apply font-display tracking-tight;
+}
+
+/* Reusable classes */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-brand-600 text-white hover:bg-brand-700;
+  }
+  .btn-accent {
+    @apply bg-accent-400 text-brand-900 hover:brightness-95;
+  }
+  .btn-secondary {
+    @apply border border-line bg-white text-stone-700 hover:bg-stone-50;
+  }
+  .btn-danger {
+    @apply border border-red-200 bg-white text-red-700 hover:bg-red-50;
+  }
+  .btn-ghost {
+    @apply text-stone-600 hover:bg-stone-100;
+  }
+  .input {
+    @apply w-full rounded-xl border border-stone-300 bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-stone-400 focus:border-brand-600 focus:ring-2 focus:ring-brand-100;
+  }
+  .label {
+    @apply mb-1 block text-sm font-medium text-stone-700;
+  }
+  .card {
+    @apply rounded-3xl border border-line bg-white;
+  }
+}
